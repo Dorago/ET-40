@@ -1,0 +1,16 @@
+if paramcnt < 2 then
+  messagebox 'No ComPort No' 'Error'
+  end
+endif
+
+BAUDRATE = '9600'
+COMMAND = '/C='
+strconcat COMMAND param2
+strconcat COMMAND ' /BAUD='
+strconcat COMMAND BAUDRATE
+connect COMMAND
+
+setrts 0
+setdtr 0
+ 
+end

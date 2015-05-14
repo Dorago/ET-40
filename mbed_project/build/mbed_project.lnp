@@ -1,0 +1,23 @@
+--cpu Cortex-M0
+".\build\main.o"
+--library_type=microlib --nodebug --strict --scatter "mbed/TARGET_LPC1114/TOOLCHAIN_ARM_MICRO/LPC1114.sct"
+
+
+            
+              mbed/TARGET_LPC1114/TOOLCHAIN_ARM_MICRO/startup_LPC11xx.o
+            
+              mbed/TARGET_LPC1114/TOOLCHAIN_ARM_MICRO/retarget.o
+            
+              mbed/TARGET_LPC1114/TOOLCHAIN_ARM_MICRO/board.o
+            
+              mbed/TARGET_LPC1114/TOOLCHAIN_ARM_MICRO/cmsis_nvic.o
+            
+              mbed/TARGET_LPC1114/TOOLCHAIN_ARM_MICRO/system_LPC11xx.o
+            
+              mbed/TARGET_LPC1114/TOOLCHAIN_ARM_MICRO/sys.o
+            
+              mbed/TARGET_LPC1114/TOOLCHAIN_ARM_MICRO/mbed.ar
+            
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\build\mbed_project.map" -o .\build\mbed_project.axf

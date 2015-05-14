@@ -1,0 +1,58 @@
+
+arm7tdmi.o:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <ReadFlash2000>:
+   0:	4d12      	ldr	r5, [pc, #72]	; (4c <ReadFlash2000+0x4c>)
+   2:	2001      	movs	r0, #1
+   4:	6028      	str	r0, [r5, #0]
+   6:	4d12      	ldr	r5, [pc, #72]	; (50 <ReadFlash2000+0x50>)
+   8:	2300      	movs	r3, #0
+   a:	6969      	ldr	r1, [r5, #20]
+   c:	2601      	movs	r6, #1
+   e:	4231      	tst	r1, r6
+  10:	d0fb      	beq.n	a <ReadFlash2000+0xa>
+  12:	6828      	ldr	r0, [r5, #0]
+  14:	26ff      	movs	r6, #255	; 0xff
+  16:	4030      	ands	r0, r6
+  18:	28aa      	cmp	r0, #170	; 0xaa
+  1a:	d1f6      	bne.n	a <ReadFlash2000+0xa>
+  1c:	4a0d      	ldr	r2, [pc, #52]	; (54 <ReadFlash2000+0x54>)
+  1e:	2400      	movs	r4, #0
+  20:	7818      	ldrb	r0, [r3, #0]
+  22:	3301      	adds	r3, #1
+  24:	1824      	adds	r4, r4, r0
+  26:	f000 f80a 	bl	3e <ReadFlash2000+0x3e>
+  2a:	3a01      	subs	r2, #1
+  2c:	d1f8      	bne.n	20 <ReadFlash2000+0x20>
+  2e:	0020      	movs	r0, r4
+  30:	f000 f805 	bl	3e <ReadFlash2000+0x3e>
+  34:	2408      	movs	r4, #8
+  36:	40e0      	lsrs	r0, r4
+  38:	f000 f801 	bl	3e <ReadFlash2000+0x3e>
+  3c:	e7e5      	b.n	a <ReadFlash2000+0xa>
+  3e:	6969      	ldr	r1, [r5, #20]
+  40:	2620      	movs	r6, #32
+  42:	4231      	tst	r1, r6
+  44:	d0fb      	beq.n	3e <ReadFlash2000+0x3e>
+  46:	6028      	str	r0, [r5, #0]
+  48:	4770      	bx	lr
+  4a:	0000      	.short	0x0000
+  4c:	e01fc040 	.word	0xe01fc040
+  50:	e000c000 	.word	0xe000c000
+  54:	00000400 	.word	0x00000400
+
+arm7tdmi.o:     file format elf32-littlearm
+
+Contents of section .text:
+ 0000 124d0120 2860124d 00236969 01263142  .M. (`.M.#ii.&1B
+ 0010 fbd02868 ff263040 aa28f6d1 0d4a0024  ..(h.&0@.(...J.$
+ 0020 18780133 241800f0 0af8013a f8d12000  .x.3$......:.. .
+ 0030 00f005f8 0824e040 00f001f8 e5e76969  .....$.@......ii
+ 0040 20263142 fbd02860 70470000 40c01fe0   &1B..(`pG..@...
+ 0050 00c000e0 00040000                    ........        
+Contents of section .ARM.attributes:
+ 0000 411f0000 00616561 62690001 15000000  A....aeabi......
+ 0010 0541524d 3754444d 49000602 08010901  .ARM7TDMI.......

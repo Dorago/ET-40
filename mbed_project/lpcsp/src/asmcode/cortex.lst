@@ -1,0 +1,206 @@
+
+cortex.o:     file format elf32-littlearm
+
+
+Disassembly of section .text.1700:
+
+00000000 <ReadFlash1700>:
+   0:	4d12      	ldr	r5, [pc, #72]	; (4c <ReadFlash1700+0x4c>)
+   2:	2001      	movs	r0, #1
+   4:	6028      	str	r0, [r5, #0]
+   6:	2300      	movs	r3, #0
+   8:	4d11      	ldr	r5, [pc, #68]	; (50 <ReadFlash1700+0x50>)
+   a:	6969      	ldr	r1, [r5, #20]
+   c:	2601      	movs	r6, #1
+   e:	4231      	tst	r1, r6
+  10:	d0fb      	beq.n	a <ReadFlash1700+0xa>
+  12:	6828      	ldr	r0, [r5, #0]
+  14:	26ff      	movs	r6, #255	; 0xff
+  16:	4030      	ands	r0, r6
+  18:	28aa      	cmp	r0, #170	; 0xaa
+  1a:	d1f6      	bne.n	a <ReadFlash1700+0xa>
+  1c:	4a0d      	ldr	r2, [pc, #52]	; (54 <ReadFlash1700+0x54>)
+  1e:	2400      	movs	r4, #0
+  20:	7818      	ldrb	r0, [r3, #0]
+  22:	3301      	adds	r3, #1
+  24:	1824      	adds	r4, r4, r0
+  26:	f000 f80a 	bl	3e <ReadFlash1700+0x3e>
+  2a:	3a01      	subs	r2, #1
+  2c:	d1f8      	bne.n	20 <ReadFlash1700+0x20>
+  2e:	0020      	movs	r0, r4
+  30:	f000 f805 	bl	3e <ReadFlash1700+0x3e>
+  34:	2408      	movs	r4, #8
+  36:	40e0      	lsrs	r0, r4
+  38:	f000 f801 	bl	3e <ReadFlash1700+0x3e>
+  3c:	e7e5      	b.n	a <ReadFlash1700+0xa>
+  3e:	6969      	ldr	r1, [r5, #20]
+  40:	2620      	movs	r6, #32
+  42:	4231      	tst	r1, r6
+  44:	d0fb      	beq.n	3e <ReadFlash1700+0x3e>
+  46:	6028      	str	r0, [r5, #0]
+  48:	4770      	bx	lr
+  4a:	0000      	.short	0x0000
+  4c:	400fc040 	.word	0x400fc040
+  50:	4000c000 	.word	0x4000c000
+  54:	00000400 	.word	0x00000400
+
+Disassembly of section .text.1100:
+
+00000000 <ReadFlash1100>:
+   0:	4d12      	ldr	r5, [pc, #72]	; (4c <ReadFlash1700+0x4c>)
+   2:	2002      	movs	r0, #2
+   4:	6028      	str	r0, [r5, #0]
+   6:	4d12      	ldr	r5, [pc, #72]	; (50 <ReadFlash1700+0x50>)
+   8:	2300      	movs	r3, #0
+   a:	6969      	ldr	r1, [r5, #20]
+   c:	2601      	movs	r6, #1
+   e:	4231      	tst	r1, r6
+  10:	d0fb      	beq.n	a <ReadFlash1100+0xa>
+  12:	6828      	ldr	r0, [r5, #0]
+  14:	26ff      	movs	r6, #255	; 0xff
+  16:	4030      	ands	r0, r6
+  18:	28aa      	cmp	r0, #170	; 0xaa
+  1a:	d1f6      	bne.n	a <ReadFlash1100+0xa>
+  1c:	4a0d      	ldr	r2, [pc, #52]	; (54 <ReadFlash1700+0x54>)
+  1e:	2400      	movs	r4, #0
+  20:	7818      	ldrb	r0, [r3, #0]
+  22:	3301      	adds	r3, #1
+  24:	1824      	adds	r4, r4, r0
+  26:	f000 f80a 	bl	3e <ReadFlash1100+0x3e>
+  2a:	3a01      	subs	r2, #1
+  2c:	d1f8      	bne.n	20 <ReadFlash1100+0x20>
+  2e:	0020      	movs	r0, r4
+  30:	f000 f805 	bl	3e <ReadFlash1100+0x3e>
+  34:	2408      	movs	r4, #8
+  36:	40e0      	lsrs	r0, r4
+  38:	f000 f801 	bl	3e <ReadFlash1100+0x3e>
+  3c:	e7e5      	b.n	a <ReadFlash1100+0xa>
+  3e:	6969      	ldr	r1, [r5, #20]
+  40:	2620      	movs	r6, #32
+  42:	4231      	tst	r1, r6
+  44:	d0fb      	beq.n	3e <ReadFlash1100+0x3e>
+  46:	6028      	str	r0, [r5, #0]
+  48:	4770      	bx	lr
+  4a:	0000      	.short	0x0000
+  4c:	40048000 	.word	0x40048000
+  50:	40008000 	.word	0x40008000
+  54:	00000400 	.word	0x00000400
+
+Disassembly of section .text.800:
+
+00000000 <ReadFlash800>:
+   0:	4d12      	ldr	r5, [pc, #72]	; (4c <ReadFlash1700+0x4c>)
+   2:	2002      	movs	r0, #2
+   4:	6028      	str	r0, [r5, #0]
+   6:	4d12      	ldr	r5, [pc, #72]	; (50 <ReadFlash1700+0x50>)
+   8:	2300      	movs	r3, #0
+   a:	68a9      	ldr	r1, [r5, #8]
+   c:	2601      	movs	r6, #1
+   e:	4231      	tst	r1, r6
+  10:	d0fb      	beq.n	a <ReadFlash800+0xa>
+  12:	6968      	ldr	r0, [r5, #20]
+  14:	26ff      	movs	r6, #255	; 0xff
+  16:	4030      	ands	r0, r6
+  18:	28aa      	cmp	r0, #170	; 0xaa
+  1a:	d1f6      	bne.n	a <ReadFlash800+0xa>
+  1c:	4a0d      	ldr	r2, [pc, #52]	; (54 <ReadFlash1700+0x54>)
+  1e:	2400      	movs	r4, #0
+  20:	7818      	ldrb	r0, [r3, #0]
+  22:	3301      	adds	r3, #1
+  24:	1824      	adds	r4, r4, r0
+  26:	f000 f80a 	bl	3e <ReadFlash800+0x3e>
+  2a:	3a01      	subs	r2, #1
+  2c:	d1f8      	bne.n	20 <ReadFlash800+0x20>
+  2e:	0020      	movs	r0, r4
+  30:	f000 f805 	bl	3e <ReadFlash800+0x3e>
+  34:	2408      	movs	r4, #8
+  36:	40e0      	lsrs	r0, r4
+  38:	f000 f801 	bl	3e <ReadFlash800+0x3e>
+  3c:	e7e5      	b.n	a <ReadFlash800+0xa>
+  3e:	68a9      	ldr	r1, [r5, #8]
+  40:	2604      	movs	r6, #4
+  42:	4231      	tst	r1, r6
+  44:	d0fb      	beq.n	3e <ReadFlash800+0x3e>
+  46:	61e8      	str	r0, [r5, #28]
+  48:	4770      	bx	lr
+  4a:	0000      	.short	0x0000
+  4c:	40048000 	.word	0x40048000
+  50:	40064000 	.word	0x40064000
+  54:	00000400 	.word	0x00000400
+
+Disassembly of section .text.1500:
+
+00000000 <ReadFlash1500>:
+   0:	4d12      	ldr	r5, [pc, #72]	; (4c <ReadFlash1700+0x4c>)
+   2:	2002      	movs	r0, #2
+   4:	6028      	str	r0, [r5, #0]
+   6:	4d12      	ldr	r5, [pc, #72]	; (50 <ReadFlash1700+0x50>)
+   8:	2300      	movs	r3, #0
+   a:	68a9      	ldr	r1, [r5, #8]
+   c:	2601      	movs	r6, #1
+   e:	4231      	tst	r1, r6
+  10:	d0fb      	beq.n	a <ReadFlash1500+0xa>
+  12:	6968      	ldr	r0, [r5, #20]
+  14:	26ff      	movs	r6, #255	; 0xff
+  16:	4030      	ands	r0, r6
+  18:	28aa      	cmp	r0, #170	; 0xaa
+  1a:	d1f6      	bne.n	a <ReadFlash1500+0xa>
+  1c:	4a0d      	ldr	r2, [pc, #52]	; (54 <ReadFlash1700+0x54>)
+  1e:	2400      	movs	r4, #0
+  20:	7818      	ldrb	r0, [r3, #0]
+  22:	3301      	adds	r3, #1
+  24:	1824      	adds	r4, r4, r0
+  26:	f000 f80a 	bl	3e <ReadFlash1500+0x3e>
+  2a:	3a01      	subs	r2, #1
+  2c:	d1f8      	bne.n	20 <ReadFlash1500+0x20>
+  2e:	0020      	movs	r0, r4
+  30:	f000 f805 	bl	3e <ReadFlash1500+0x3e>
+  34:	2408      	movs	r4, #8
+  36:	40e0      	lsrs	r0, r4
+  38:	f000 f801 	bl	3e <ReadFlash1500+0x3e>
+  3c:	e7e5      	b.n	a <ReadFlash1500+0xa>
+  3e:	68a9      	ldr	r1, [r5, #8]
+  40:	2604      	movs	r6, #4
+  42:	4231      	tst	r1, r6
+  44:	d0fb      	beq.n	3e <ReadFlash1500+0x3e>
+  46:	61e8      	str	r0, [r5, #28]
+  48:	4770      	bx	lr
+  4a:	0000      	.short	0x0000
+  4c:	40074000 	.word	0x40074000
+  50:	40040000 	.word	0x40040000
+  54:	00000400 	.word	0x00000400
+
+cortex.o:     file format elf32-littlearm
+
+Contents of section .text.1700:
+ 0000 124d0120 28600023 114d6969 01263142  .M. (`.#.Mii.&1B
+ 0010 fbd02868 ff263040 aa28f6d1 0d4a0024  ..(h.&0@.(...J.$
+ 0020 18780133 241800f0 0af8013a f8d12000  .x.3$......:.. .
+ 0030 00f005f8 0824e040 00f001f8 e5e76969  .....$.@......ii
+ 0040 20263142 fbd02860 70470000 40c00f40   &1B..(`pG..@..@
+ 0050 00c00040 00040000                    ...@....        
+Contents of section .text.1100:
+ 0000 124d0220 2860124d 00236969 01263142  .M. (`.M.#ii.&1B
+ 0010 fbd02868 ff263040 aa28f6d1 0d4a0024  ..(h.&0@.(...J.$
+ 0020 18780133 241800f0 0af8013a f8d12000  .x.3$......:.. .
+ 0030 00f005f8 0824e040 00f001f8 e5e76969  .....$.@......ii
+ 0040 20263142 fbd02860 70470000 00800440   &1B..(`pG.....@
+ 0050 00800040 00040000                    ...@....        
+Contents of section .text.800:
+ 0000 124d0220 2860124d 0023a968 01263142  .M. (`.M.#.h.&1B
+ 0010 fbd06869 ff263040 aa28f6d1 0d4a0024  ..hi.&0@.(...J.$
+ 0020 18780133 241800f0 0af8013a f8d12000  .x.3$......:.. .
+ 0030 00f005f8 0824e040 00f001f8 e5e7a968  .....$.@.......h
+ 0040 04263142 fbd0e861 70470000 00800440  .&1B...apG.....@
+ 0050 00400640 00040000                    .@.@....        
+Contents of section .text.1500:
+ 0000 124d0220 2860124d 0023a968 01263142  .M. (`.M.#.h.&1B
+ 0010 fbd06869 ff263040 aa28f6d1 0d4a0024  ..hi.&0@.(...J.$
+ 0020 18780133 241800f0 0af8013a f8d12000  .x.3$......:.. .
+ 0030 00f005f8 0824e040 00f001f8 e5e7a968  .....$.@.......h
+ 0040 04263142 fbd0e861 70470000 00400740  .&1B...apG...@.@
+ 0050 00000440 00040000                    ...@....        
+Contents of section .ARM.attributes:
+ 0000 41200000 00616561 62690001 16000000  A ...aeabi......
+ 0010 05436f72 7465782d 4d300006 0c074d09  .Cortex-M0....M.
+ 0020 01                                   .               
