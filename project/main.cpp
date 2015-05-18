@@ -11,6 +11,8 @@
 //servoの制御は20[msec]のPWMで制御している
 //サーボの角度制御に必要なパルスは約0.5~2.5[ms]
 //その為，0.125~0.025内で変える必要がある
+//servo変数は内部の固有の変数であるため，+=等が使えない
+//外部からその数値が知りたい場合は別に変数を用意して代入する必要がある
 
 /*****各ポートの割り当て*****/
 Serial pc(xp9,xp10);
@@ -33,9 +35,9 @@ PwmOut servo[]={xp5,xp6,xp39,xp40};
 /************************/
 
 Ticker motor_control;
-int duty = 30;		//回転速度(Duty比)		[設定値：0(最小)~100(最大)]
-int dir = 1;			//回転方向						[0:正転	1:逆転	2:ブレーキ]
-int motor_id = 1;	//回るモータのポート			[0:aのみ回転	1:bのみ回転	2:ab両方回転	]
+int duty = 0;			//回転速度(Duty比)		[設定値：0(最小)~100(最大)]
+int dir = 0;			//回転方向						[0:正転	1:逆転	2:ブレーキ]
+int motor_id = 0;	//回るモータのポート			[0:aのみ回転	1:bのみ回転	2:ab両方回転	]
 
 void motor(void)
 {
@@ -158,8 +160,10 @@ void pc_rx(void)
 
 /*****基本的にはここから下を書き換える*****/
 
+/***** ボタンを押すとサーボが少しずつ動くプログラム *****/
+
 int main() {
-	pc.baud(9600);														//通信速度の設定　default:9600bps　(これ以上あげるには別の設定が必要？)
+		pc.baud(9600);														//通信速度の設定　default:9600bps　(これ以上あげるには別の設定が必要？)
     pc.attach(pc_rx, Serial::RxIrq);				//シリアル通信の受信割り込み許可
     pc.printf("mbed start!!!\n\r");					
     
@@ -167,10 +171,17 @@ int main() {
     
     sw.mode(PullUp);												//swピンを全てプルアップ状態にする
 	
+		servo[0] = 0.019;			//最小値
+		servo[1] = 0.019;			//最小値
+		servo[2] = 0.019;			//最小値
+		servo[3] = 0.019;			//最小値
+	
+		double s[4]={0,0,0,0}; 
+	
     led = 0;																//一番左側のLED(青)のみ点灯させる
-    
+		
     while(1) {															//無限Loop
-        for(int i=0 ; i<6 ; i++)						//各ポートのanalog値をPCへ送信する
+ /*       for(int i=0 ; i<6 ; i++)						//各ポートのanalog値をPCへ送信する
         {
             pc.printf("%4.2f ", analog[i].read());
         }
@@ -181,43 +192,59 @@ int main() {
             pc.printf("%d ", digital[i].read());
         }
         pc.printf("\n\n\r");								//2行改行
-        
+ */       
         switch(sw)													//swの押し方で動作を変更する
         {
             case 0:			//両方のswを押したとき
-                led = 4;
-                servo[0] = 0.05;
-                servo[1] = 0.0;
-                servo[2] = 0.0;
-                servo[3] = 0.0;
-                pc.printf("sw both\n\r");
-                break;
-            case 1:			//左側のswを押したとき
+								led = 4;
+//							servo[0] = 0.05;
+//							servo[1] = 0.0;
+//							servo[2] = 0.0;
+//							servo[3] = 0.0;
+//							pc.printf("sw both\n\r");
+								break;
+						case 1:			//左側のswを押したとき
                 led = 8;
-                servo[0] = 0.0;
-                servo[1] = 0.05;
-                servo[2] = 0.0;
-                servo[3] = 0.0;
-                pc.printf("sw left\n\r");
-                break;
-            case 2:			//右側のswを押したとき
+								servo[0] = servo[0] + 0.001;
+								servo[1] = servo[1] + 0.001;
+								servo[2] = servo[2] + 0.001;
+								servo[3] = servo[3] + 0.001;
+								s[0] = servo[0];
+								s[1] = servo[1];
+								s[2] = servo[2];
+								s[3] = servo[3];
+								pc.printf("%.3lf\n\r ", s[0]);
+								pc.printf("%.3lf\n\r ", s[1]);
+								pc.printf("%.3lf\n\r ", s[2]);
+								pc.printf("%.3lf\n\r ", s[3]);
+								pc.printf("sw left\n\r");
+								break;
+						case 2:			//右側のswを押したとき
                 led = 2;
-                servo[0] = 0.0;
-                servo[1] = 0.0;
-                servo[2] = 0.05;
-                servo[3] = 0.0;
-                pc.printf("sw right\n\r");
-                break;
+								servo[0] = servo[0] - 0.001;
+								servo[1] = servo[1] - 0.001;
+								servo[2] = servo[2] - 0.001;
+								servo[3] = servo[3] - 0.001;
+								s[0] = servo[0];
+								s[1] = servo[1];
+								s[2] = servo[2];
+								s[3] = servo[3];
+								pc.printf("%.3lf\n\r ", s[0]);
+								pc.printf("%.3lf\n\r ", s[1]);
+								pc.printf("%.3lf\n\r ", s[2]);
+								pc.printf("%.3lf\n\r ", s[3]);
+								pc.printf("sw right\n\r");
+								break;
             case 3:			//両方のswを押していないとき
                 led = 1;
-                servo[0] = 0.0;
-                servo[1] = 0.0;
-                servo[2] = 0.0;
-                servo[3] = 0.05;
-                pc.printf("sw off\n\r");
-                break;
-        }
-        wait(0.1);													//0.1[sec]待つ
+//							servo[0] = 0.0;
+//							servo[1] = 0.0;
+//							servo[2] = 0.0;
+//							servo[3] = 0.05;
+//							pc.printf("sw off\n\r");
+								break;
+				}
+				wait(0.05);													//0.1[sec]待つ
     }
 }
 
