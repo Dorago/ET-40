@@ -165,7 +165,7 @@
           <Flash1>
             <UseTargetDll>0</UseTargetDll>
             <UseExternalTool>1</UseExternalTool>
-            <RunIndependent>0</RunIndependent>
+            <RunIndependent>1</RunIndependent>
             <UpdateFlashBeforeDebugging>1</UpdateFlashBeforeDebugging>
             <Capability>1</Capability>
             <DriverSelection>4096</DriverSelection>
@@ -419,12 +419,12 @@
       </TargetOption>
       <Groups>
         <Group>
-          <GroupName>src</GroupName>
+          <GroupName>dorago</GroupName>
           <Files>
             <File>
               <FileName>main.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>main.cpp</FilePath>
+              <FilePath>.\main.cpp</FilePath>
             </File>
           </Files>
         </Group>

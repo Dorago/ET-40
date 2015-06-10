@@ -192,7 +192,7 @@
   </Target>
 
   <Group>
-    <GroupName>src</GroupName>
+    <GroupName>dorago</GroupName>
     <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
@@ -203,12 +203,12 @@
       <FileType>8</FileType>
       <tvExp>1</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>18</ColumnNumber>
+      <ColumnNumber>21</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>17</TopLine>
-      <CurrentLine>13</CurrentLine>
+      <TopLine>1</TopLine>
+      <CurrentLine>20</CurrentLine>
       <bDave2>0</bDave2>
-      <PathWithFileName>main.cpp</PathWithFileName>
+      <PathWithFileName>.\main.cpp</PathWithFileName>
       <FilenameWithoutPath>main.cpp</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>

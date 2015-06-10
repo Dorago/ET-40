@@ -210,7 +210,7 @@
             <GenPPlst>0</GenPPlst>
             <AdsCpuType>"Cortex-M0"</AdsCpuType>
             <RvctDeviceName></RvctDeviceName>
-            <mOS>0</mOS>
+            <mOS>1</mOS>
             <uocRom>0</uocRom>
             <uocRam>0</uocRam>
             <hadIROM>1</hadIROM>
@@ -419,12 +419,22 @@
       </TargetOption>
       <Groups>
         <Group>
-          <GroupName>src</GroupName>
+          <GroupName>New Group</GroupName>
           <Files>
             <File>
               <FileName>main.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>main.cpp</FilePath>
+              <FilePath>.\main.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>SDFileSystem.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\SDFileSystem.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>FATFileSystem.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\FATFileSystem.cpp</FilePath>
             </File>
           </Files>
         </Group>

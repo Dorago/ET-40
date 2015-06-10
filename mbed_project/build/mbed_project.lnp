@@ -1,5 +1,6 @@
 --cpu Cortex-M0
 ".\build\main.o"
+C:\Keil\ARM\RV31\LIB\RTX_CM1.LIB
 --library_type=microlib --nodebug --strict --scatter "mbed/TARGET_LPC1114/TOOLCHAIN_ARM_MICRO/LPC1114.sct"
 
 
